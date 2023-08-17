@@ -1,0 +1,47 @@
+<div class="container col-md-6 mt-3 mb-3 card bg-light">
+   <form action="/student/edit/{{ student._id }}" method="post">
+      <h1 class="text text-danger text-center text-uppercase mt-3">Edit student</h1>
+      <div class="form-group mt-3">
+         <label class="h5 text text-success" for="">Full name</label>
+         <input class="form-control" type="text" name="name" value={{ student.name }} required>
+      </div>
+      <div class="form-group mt-3">
+         <label class="h5 text text-success" for="">Birthday</label>
+         <input class="form-control" type="date" name="dob" value={{ student.dob }} required>
+      </div>
+      <div class="form-group mt-3">
+         <label class="h5 text text-success" for="">Gender</label><br>
+         Male <input type="radio" name="gender" value="Male">
+         Female <input type="radio" name="gender" value="Female">
+      </div>
+      <div class="form-group mt-3">
+         <label class="h5 text text-success" for="">Deparment</label>
+         <select class="form-control" name="department">
+            <option value="Computing">Computing</option>
+            <option value="Business">Business</option>
+            <option value="Graphic Design">Graphic Design</option>
+         </select>
+      </div>
+      <div class="form-group mt-3">
+         <label class="h5 text text-success" for="">Class</label>
+         <input class="form-control" type="text" name="class" value={{ student.class }} required>
+      </div>
+      <div class="form-group mt-3">
+         <label class="h5 text text-success" for="">Image</label><br>
+         <img src="/images/{{ student.image }}" width="100" height="100">
+         <input class="form-control" type="file" name="image" value={{ student.image }} required>
+      </div>
+      <div class="form-group mt-3">
+         <label class="h5 text text-success" for="">GPA</label>
+         <input class="form-control" type="text" name="gpa" value={{ student.gpa }} required>
+      </div>
+      <div class="form-group mt-3">
+         <label class="h5 text text-success" for="">Student Year</label>
+         <input class="form-control" type="number" name="studentYear" value={{ student.studentYear }} 
+         required min="1" max="4">
+      </div>
+      <div class="form-group text-center mt-3 mb-3">
+         <input class="btn btn-primary" type="submit" value="Edit">
+      </div>
+   </form>
+</div>
