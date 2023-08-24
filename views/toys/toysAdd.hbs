@@ -1,4 +1,5 @@
 <div class="container col-md-6 mt-3 mb-3 card bg-light">
+   {{!-- Gửi dữ liệu từ form tới api toys/add với method post --}}
    <form action="/toys/add" method="post">
       <h1 class="text text-danger text-center text-uppercase mt-3">Add new toys</h1>
       <div class="form-group mt-3">
@@ -21,10 +22,24 @@
                      {{name}}
                </option>
                {{/each}}
-             <option onselect="window.location.href='/toys'">
-               Add new category
-             </option>
+            
             </select>
+      </div>
+       <div class="form-group mt-3">
+         <label class="h5 text text-success" for="">Brand</label><br>
+         
+         <select class="form-control" name="brand" id="brand">
+               <option value="#">
+                  Select brand
+               </option>
+               {{#each brand }}
+                <option value={{name}}>
+                     {{name}}
+               </option>
+               {{/each}}
+            
+            </select>
+             <a class="btn btn-danger" href="/brand/add">Add</a>
       </div>
       
       <div class="form-group mt-3">

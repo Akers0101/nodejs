@@ -9,6 +9,7 @@
       
       <tr>
          <th colspan="3">
+            {{!-- Gửi dữ liệu tới api toys/search với method post --}}
             <form action="/toys/search" method="post">
                <input class="form-control" type="search" name="keyword" placeholder="Search by name" required>
             </form>
@@ -21,15 +22,19 @@
                <option value="#">
                   Select option to sort
                </option>
+               {{!-- Gửi dữ liệu tới api toys/sort/category/asc với method post --}}
                <option value="/toys/sort/category/asc">
                   Sort by category ascending
                </option>
+               {{!-- Gửi dữ liệu tới api toys/sort/category/desc với method post --}}
                <option value="/toys/sort/category/desc">
                   Sort by category descending
                </option>
+               {{!-- Gửi dữ liệu tới api toys/sort/color/asc với method post --}}
                <option value="/toys/sort/color/asc">
                   Sort by color ascending
                </option>
+               {{!-- Gửi dữ liệu tới api toys/sort/color/desc với method post --}}
                <option value="/toys/sort/color/desc">
                   Sort by color descending
                </option>
@@ -40,21 +45,26 @@
          <th>Name</th>
          <th>Manufacturing Date</th>
          <th>Category</th>
+         <th>Brand</th>
          <th>Color</th>
          <th>Manufacturer</th>
          <th>Detail</th>
          <th>Action</th>
       </tr>
+      {{!-- lấy dừ liệu về và hiển thị --}}
       {{#each toys }}
       <tr>
          <td>{{ name }}</td>
          <td>{{ dateFormat mfg "DD-MM-YYYY"}}</td>
          <td>{{ category }}</td>
+         <td>{{ brand }}</td>
          <td>{{ color }}</td>
          <td>{{ manufacture }}</td>
          <td>{{detail}}</td>
          <td>
+            {{!-- chuyển tới trang toys/edit với id của hàng --}}
             <a class="btn btn-warning" href="/toys/edit/{{ _id }}">Edit</a>
+             {{!-- chuyển tới trang toys/delete với id của hàng --}}
             <a class="btn btn-danger" href="/toys/delete/{{ _id }}"
                onclick="return confirm('Are you sure to delete this toys ?');">Delete</a>
          </td>
